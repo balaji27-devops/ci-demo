@@ -24,3 +24,17 @@ jobs:
 
     - name: Run the tests
       run: pytest -v
+
+    - name: package application
+      run: |
+        mkdir build
+        cp app.py build/
+        echo "build complete!"
+
+    - name: Upload Artifact
+      uses: actions/upload-artifact@v4
+      with:
+         name: python-app
+         path: build/
+
+      
